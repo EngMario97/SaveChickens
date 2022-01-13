@@ -2,9 +2,9 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "root",
-  "password": "root",
-  "database": "connect",
+  "username": "mario",
+  "password": "Mario!1997",
+  "database": "ecommerce_database",
   "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
   "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
   "cli": {

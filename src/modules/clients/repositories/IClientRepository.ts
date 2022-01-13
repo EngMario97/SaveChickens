@@ -11,4 +11,12 @@ export default interface IClientRepository {
    * Promise<Client> é o tipo do retorno do método
    */
   create(data: IClientDTO): Promise<Client>;
+
+  listAll(): Promise<Client[]>;
+
+  findById(id: string): Promise<Client | undefined>;
+
+  update(data: IClientDTO): Promise<Client>;
+
+  delete(id: string): Promise<void>;
 }

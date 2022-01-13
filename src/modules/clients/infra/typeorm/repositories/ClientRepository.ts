@@ -19,4 +19,22 @@ export default class ClientRepository implements IClientRepository {
     const client = this.ormRepository.create(data);
     return this.ormRepository.save(client);
   }
+
+  async listAll(): Promise<Client[]> {
+    const listClients = this.ormRepository.find();
+    return listClients;
+  }
+
+  async findById(id: string): Promise<Client | undefined> {
+    const client = this.ormRepository.findOne(id);
+    return client;
+  }
+
+  async update(data: IClientDTO): Promise<Client> {
+    return this.ormRepository.save(data);
+  }
+
+  async delete(id: string): Promise<void> {
+    const client = this.ormRepository.delete(id);
+  }
 }
