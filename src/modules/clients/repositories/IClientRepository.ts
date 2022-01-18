@@ -1,3 +1,4 @@
+import { DeleteResult } from "typeorm";
 import IClientDTO from "../dtos/IClientDTO";
 import Client from "../infra/typeorm/entities/Client";
 
@@ -7,16 +8,14 @@ import Client from "../infra/typeorm/entities/Client";
  */
 export default interface IClientRepository {
   /**
-   * data são os dados do Cliente, deve ter o tipo IClientDTO
+   * data são os dados do Cliente, deve ter do tipo IClientDTO
    * Promise<Client> é o tipo do retorno do método
    */
   create(data: IClientDTO): Promise<Client>;
-
-  listAll(): Promise<Client[]>;
-
-  findById(id: string): Promise<Client | undefined>;
-
+  list(): Promise<Client[]>;
+  findById(id: number): Promise<Client | undefined>;
   update(data: IClientDTO): Promise<Client>;
+  delete(id: number): Promise<DeleteResult>;
 
-  delete(id: string): Promise<void>;
+  // fazer outros médodos aqui
 }

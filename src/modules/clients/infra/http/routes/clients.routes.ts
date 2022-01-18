@@ -5,9 +5,9 @@ const routes = Router();
 
 routes.post("/", ClientsController.create);
 
-routes.get("/", ClientsController.index);
+routes.get("/", ClientsController.list);
 
-routes.get("/:id", ClientsController.show);
+routes.get("/:id", ClientsController.findById);
 
 routes.put("/:id", ClientsController.update);
 

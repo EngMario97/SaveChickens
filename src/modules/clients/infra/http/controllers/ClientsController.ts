@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
+import FindAllClientsService from "../../../services/FindAllClientsService";
 import CreateClientService from "../../../services/CreateClientService";
-import DeleteClientService from "../../../services/DeleteClientService";
-import FindByIdService from "../../../services/FindByIdService";
-import ListClientsService from "../../../services/ListClientsService";
+import FindClientByIdService from "../../../services/FindClientByIdService";
 import UpdateClientService from "../../../services/UpdateClientService";
+import DeleteClientService from "../../../services/DeleteClientService";
 
 /**
  * O controller tem acesso as requisições e é o responsável por enviar uma
@@ -12,7 +12,7 @@ import UpdateClientService from "../../../services/UpdateClientService";
  * Por padrão ele deve ter no máximo 5 métodos (index, create, show, update e delete)
  */
 class ClientsController {
-  async create(request: Request, response: Response) {
+  async create(request: Request, response: Response): Promise<Response> {
     const data = request.body;
 
     const createClientService = new CreateClientService();
@@ -22,43 +22,47 @@ class ClientsController {
     return response.json(client);
   }
 
-  async index(request: Request, response: Response) {
-    const listClientsService = new ListClientsService();
+  async list(request: Request, response: Response): Promise<Response> {
+    const listAllClientsService = new FindAllClientsService();
 
-    const listClients = await listClientsService.execute();
+    const clients = await listAllClientsService.execute();
 
-    return response.json(listClients);
+    return response.json(clients);
   }
 
-  async show(request: Request, response: Response) {
+  async findById(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const findByIdService = new FindByIdService();
+    const findClientById = new FindClientByIdService();
 
-    const client = await findByIdService.execute(id);
+    const client = await findClientById.execute(Number(id));
 
     return response.json(client);
   }
 
-  async update(request: Request, response: Response) {
+  async update(request: Request, response: Response): Promise<Response> {
     const data = request.body;
-    const { id } = request.params;
+    const { id } = request.params; // desestruturação
 
     const updateClientService = new UpdateClientService();
 
-    const client = await updateClientService.execute(id, data);
+    const data_to_update = {
+      ...data, // rest / spread operator
+      id: Number(id),
+    };
+
+    const client = await updateClientService.execute(data_to_update);
 
     return response.json(client);
   }
-
-  async delete(request: Request, response: Response) {
+  async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
     const deleteClientService = new DeleteClientService();
 
-    await deleteClientService.execute(id);
+    const result = await deleteClientService.execute(Number(id));
 
-    return response.json("Cliente deletado com sucesso.");
+    return response.json(result);
   }
 }
 
