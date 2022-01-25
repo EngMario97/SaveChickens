@@ -1,4 +1,4 @@
-import IProductsByCategory from "modules/categories/repositories/IProductsByCategory";
+import IProductsByCategory from "../../../../categories/repositories/IProductsByCategory";
 import { getRepository, Repository } from "typeorm";
 import Category from "../entities/Category";
 

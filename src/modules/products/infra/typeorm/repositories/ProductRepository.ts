@@ -1,5 +1,5 @@
-import IProductDTO from "modules/products/dtos/IProductDTO";
-import IProductRepository from "modules/products/repositories/IProductRepository";
+import IProductDTO from "../../../../products/dtos/IProductDTO";
+import IProductRepository from "../../../../products/repositories/IProductRepository";
 import { DeleteResult, getRepository, Repository } from "typeorm";
 import Product from "../entities/Product";
 

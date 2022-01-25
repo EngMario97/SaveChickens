@@ -1,5 +1,5 @@
-import ICategoryDTO from "modules/categories/dtos/ICategoryDTO";
-import ICategoryRepository from "modules/categories/repositories/ICategoryRepository";
+import ICategoryDTO from "../../../../categories/dtos/ICategoryDTO";
+import ICategoryRepository from "../../../../categories/repositories/ICategoryRepository";
 import { DeleteResult, getRepository, Repository } from "typeorm";
 import Category from "../entities/Category";
 

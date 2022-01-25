@@ -1,4 +1,5 @@
-import Product from "modules/products/infra/typeorm/entities/Product";
+import Product from "../../../../products/infra/typeorm/entities/Product";
+
 import {
     Column,
     CreateDateColumn,
