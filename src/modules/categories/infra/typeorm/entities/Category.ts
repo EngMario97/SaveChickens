@@ -1,7 +1,9 @@
+import Product from "modules/products/infra/typeorm/entities/Product";
 import {
     Column,
     CreateDateColumn,
     Entity,
+    OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm";
@@ -19,4 +21,11 @@ export default class Category {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    /**
+    * Uma categoria pode ter muitos produtos
+    */
+
+    @OneToMany(() => Product, (product) => product.categoria)
+    produtos: Product[];
 }
