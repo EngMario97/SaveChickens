@@ -10,7 +10,7 @@ import {
 
 import Category from "../../../../categories/infra/typeorm/entities/Category";
 
-@Entity("Produtos")
+@Entity("produtos")
 export default class Product {
   @PrimaryGeneratedColumn("increment")
   id: number;
