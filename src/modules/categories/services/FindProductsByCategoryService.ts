@@ -1,10 +1,10 @@
 import AppError from "../../../shared/errors/AppErrors";
 import Category from "../infra/typeorm/entities/Category";
-import ProductsByCategory from "../infra/typeorm/repositories/ProductsByCategory";
+import ProductsByCategoryRepository from "../infra/typeorm/repositories/ProductsByCategoryRepository";
 
 export default class FindProductsByCategoryService {
   public async execute(id: number): Promise<Category> {
-    const categoryRepository = new ProductsByCategory();
+    const categoryRepository = new ProductsByCategoryRepository();
 
     const category = await categoryRepository.findById(id);
 

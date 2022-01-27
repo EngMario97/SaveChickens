@@ -1,8 +1,8 @@
-import IProductsByCategory from "../../../../categories/repositories/IProductsByCategory";
+import IProductsByCategoryRepository from "../../../repositories/IProductsByCategoryRepository";
 import { getRepository, Repository } from "typeorm";
 import Category from "../entities/Category";
 
-export default class ProductsByCategory implements IProductsByCategory {
+export default class ProductsByCategoryRepository implements IProductsByCategoryRepository {
   private ormRepository: Repository<Category>;
 
   constructor() {

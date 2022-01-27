@@ -1,10 +1,14 @@
+import Product from "../../../../orders/infra/typeorm/entities/Order";
+
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import Order from "../../../../orders/infra/typeorm/entities/Order";
 
 @Entity("clientes")
 export default class Client {
@@ -28,4 +32,7 @@ export default class Client {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Order, (order) => order.cliente)
+  pedidos: Order[];
 }

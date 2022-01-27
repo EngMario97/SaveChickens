@@ -14,6 +14,6 @@ routes.get("/:id/produtos", ProductsByCategoryController.findById);
 
 routes.put("/:id", CategoriesController.update);
 
-routes.delete("/:id", CategoriesController.delete);
+//routes.delete("/:id", CategoriesController.delete);
 
 export default routes;
