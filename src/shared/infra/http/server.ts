@@ -1,9 +1,9 @@
 import "reflect-metadata";
+import "express-async-errors";
 import express from "express";
 import "../typeorm";
 import routes from "./routes/index.routes";
-import "express-async-errors";
-import ErrorHandler from "./middlewares/ErrorHandler";
+import ErrorHandler from "../http/middlewares/ErrorHandler";
 
 const app = express();
 

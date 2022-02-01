@@ -19,6 +19,11 @@ export default class CreateClients1641853995392 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: "cpf",
+            type: "varchar",
+            isNullable: false,
+          },
+          {
             name: "email",
             type: "varchar",
             isNullable: false,

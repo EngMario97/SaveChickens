@@ -18,10 +18,13 @@ export default class Client {
   @Column()
   nome: string;
 
-  @Column()
+  @Column({ unique: true })
+  cpf: string;
+
+  @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ unique: true })
   telefone: string;
 
   @Column()

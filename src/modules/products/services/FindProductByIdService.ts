@@ -9,7 +9,7 @@ export default class FindProductByIdService {
     const product = await productRepository.findById(id);
 
     if (!product) {
-      throw new AppError("Produto não Existe");
+      throw new AppError("Produto não existe");
     }
 
     return product;

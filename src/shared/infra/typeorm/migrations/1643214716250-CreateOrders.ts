@@ -5,7 +5,7 @@ import {
     TableForeignKey,
 } from "typeorm";
 
-export class CreateOrders1643314716250 implements MigrationInterface {
+export class CreateOrders1643214716250 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -48,7 +48,7 @@ export class CreateOrders1643314716250 implements MigrationInterface {
                     {
                         name: "desconto", // nome da coluna que será chave estrangeira
                         type: "float", // mesmo tipo do id da tabela categorias
-                        precision: 4,
+                        precision: 10,
                         scale: 2,
                         isNullable: true,
                     },

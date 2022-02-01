@@ -18,7 +18,7 @@ export default class Product {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   nome: string;
 
   @Column()

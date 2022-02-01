@@ -9,7 +9,7 @@ export class CreateProductOrder1643234284640 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "pedido_produto",
+        name: "pedido_produtos",
         columns: [
           {
             name: "pedido_id",
@@ -42,7 +42,7 @@ export class CreateProductOrder1643234284640 implements MigrationInterface {
 
     // cria uma nova chave estrangeira
     await queryRunner.createForeignKey(
-      "pedido_produto", // nome da tabela que será criada a chave estrangeira
+      "pedido_produtos", // nome da tabela que será criada a chave estrangeira
       new TableForeignKey({
         columnNames: ["pedido_id"], // coluna (mesmo nome definido anteriormente)
         referencedColumnNames: ["id"], // qual coluna que faz referência na outra tabela
@@ -52,7 +52,7 @@ export class CreateProductOrder1643234284640 implements MigrationInterface {
     );
 
     await queryRunner.createForeignKey(
-      "pedido_produto", // nome da tabela que será criada a chave estrangeira
+      "pedido_produtos", // nome da tabela que será criada a chave estrangeira
       new TableForeignKey({
         columnNames: ["produto_id"], // coluna (mesmo nome definido anteriormente)
         referencedColumnNames: ["id"], // qual coluna que faz referência na outra tabela
@@ -63,6 +63,6 @@ export class CreateProductOrder1643234284640 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("pedido_produto");
+    await queryRunner.dropTable("pedido_produtos");
   }
 }

@@ -8,9 +8,9 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
-import Order from "./Order";
+import Order from "../entities/Order";
 
-@Entity("pedido_produto")
+@Entity("pedido_produtos")
 export default class OrderProduct {
   @PrimaryColumn()
   pedido_id: number;

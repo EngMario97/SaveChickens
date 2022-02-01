@@ -10,7 +10,7 @@ export default class UpdateCategoryService {
     const findCategoryById = new FindCategoryByIdService();
 
     if (!data.id) {
-      throw new AppError("Atualização precisa do id do cliente");
+      throw new AppError("Atualização precisa do id da categoria");
     }
 
     await findCategoryById.execute(data.id);

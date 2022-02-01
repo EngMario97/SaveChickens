@@ -9,7 +9,7 @@ export default class FindCategoryByIdService {
     const category = await categoryRepository.findById(id);
 
     if (!category) {
-      throw new AppError("Categoria não Existe");
+      throw new AppError("Categoria não existe");
     }
 
     return category;

@@ -9,7 +9,7 @@ export default class FindClientByIdService {
     const client = await clientRepository.findById(id);
 
     if (!client) {
-      throw new AppError("Cliente não Existe");
+      throw new AppError("Cliente não existe");
     }
 
     return client;

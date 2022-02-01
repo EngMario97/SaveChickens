@@ -1,6 +1,7 @@
 import {
   Column,
   CreateDateColumn,
+  DefaultNamingStrategy,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -8,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import OrderProduct from "./OrderProduct";
+import OrderProduct from "../entities/OrderProduct";
 import Client from "../../../../../modules/clients/infra/typeorm/entities/Client";
 
 @Entity("pedidos")
