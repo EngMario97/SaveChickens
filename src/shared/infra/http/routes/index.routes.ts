@@ -1,18 +1,18 @@
 import { Router } from "express";
+import veterinariansRoutes from "../../../../modules/veterinarians/infra/http/routes/veterinarians.routes";
 import clientsRoutes from "../../../../modules/clients/infra/http/routes/clients.routes";
-import categoriesRoutes from "../../../../modules/categories/infra/http/routes/categories.routes";
-import productsRoutes from "../../../../modules/products/infra/http/routes/products.routes";
-import ordersRoutes from "../../../../modules/orders/infra/http/routes/orders.routes";
+import chickensRoutes from "../../../../modules/chickens/infra/http/routes/chickens.routes";
+import deathNoteRoutes from "../../../../modules/deathNote/infra/http/routes/deathNote.routes";
 
 
 const routes = Router();
 
-routes.use("/clientes", clientsRoutes);
+routes.use("/veterinarians", veterinariansRoutes);
 
-routes.use("/categorias", categoriesRoutes);
+routes.use("/clients", clientsRoutes);
 
-routes.use("/produtos", productsRoutes);
+routes.use("/chickens", chickensRoutes);
 
-routes.use("/pedidos", ordersRoutes);
+routes.use("/deathnote", deathNoteRoutes);
 
 export default routes;

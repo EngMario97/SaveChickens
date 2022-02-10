@@ -1,6 +1,6 @@
 import { Router } from "express";
 import ClientsController from "../controllers/ClientsController";
-import OrdersByClientController from "../../../../clients/infra/http/controllers/OrdersByClientController";
+import OrdersByClientController from "../controllers/ClientsByVeterinaryServiceController";
 const routes = Router();
 
 routes.post("/", ClientsController.create);

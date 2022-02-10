@@ -2,9 +2,9 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "mario",
-  "password": "Mario!1997",
-  "database": "ecommerce_database",
+  "username": "root",
+  "password": "root",
+  "database": "savechickens_database",
   "entities": [
     "src/modules/**/infra/typeorm/entities/*.ts"
   ],
@@ -12,7 +12,8 @@
     "src/shared/infra/typeorm/migrations/*.ts"
   ],
   "cli": {
-    "migrationsDir": "src/shared/infra/typeorm/migrations"
+    "migrationsDir": "src/shared/infra/typeorm/migrations",
+    "entitiesDir": "src/modules/**/infra/typeorm/entities"
   },
   "logging": true,
   "sincronize": false

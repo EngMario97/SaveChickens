@@ -1,34 +1,35 @@
-import Product from "../../../../orders/infra/typeorm/entities/Order";
-
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import Order from "../../../../orders/infra/typeorm/entities/Order";
+import Veterinary from "../../../../veterinarians/infra/typeorm/entities/Veterinary";
+import DeathNote from "../../../../deathNote/infra/typeorm/entities/DeathNote";
 
-@Entity("clientes")
+@Entity("CLIENTS")
 export default class Client {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
   @Column()
-  nome: string;
-
-  @Column({ unique: true })
-  cpf: string;
-
-  @Column({ unique: true })
-  email: string;
-
-  @Column({ unique: true })
-  telefone: string;
+  veterinary_id: number;
 
   @Column()
-  data_nascimento: string;
+  name: string;
+
+  @Column()
+  cpf: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  telephone: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -36,6 +37,10 @@ export default class Client {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @OneToMany(() => Order, (order) => order.cliente)
-  pedidos: Order[];
+  @ManyToOne(() => Veterinary, (veterinary) => veterinary.clients)
+  @JoinColumn({ name: "veterinary_id" })
+  veterinary: Veterinary;
+
+  @OneToMany(() => DeathNote, (deathNote) => deathNote.client)
+  deathNotes: DeathNote[];
 }

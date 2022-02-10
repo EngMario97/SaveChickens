@@ -5,12 +5,6 @@ import FindClientByIdService from "../../../services/FindClientByIdService";
 import UpdateClientService from "../../../services/UpdateClientService";
 import DeleteClientService from "../../../services/DeleteClientService";
 
-/**
- * O controller tem acesso as requisições e é o responsável por enviar uma
- * resposta
- *
- * Por padrão ele deve ter no máximo 5 métodos (index, create, show, update e delete)
- */
 class ClientsController {
   async create(request: Request, response: Response): Promise<Response> {
     const data = request.body;
@@ -42,12 +36,12 @@ class ClientsController {
 
   async update(request: Request, response: Response): Promise<Response> {
     const data = request.body;
-    const { id } = request.params; // desestruturação
+    const { id } = request.params;
 
     const updateClientService = new UpdateClientService();
 
     const data_to_update = {
-      ...data, // rest / spread operator
+      ...data,
       id: Number(id),
     };
 
